@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.43.51/sell?characterEncoding=utf-8&userSSL=false
+  jpa:
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+  freemarker:
+    settings:
+      template_update_delay: 0
+server:
+  context-path: /sell
+#logging:
+#  pattern:
+#    console: "%d = %msg%n"
+##  path: /Users/yFoo/log/tomcat/
+#  file: /Users/yFoo/log/tomcat/sell.log
+#  level:
+#    com.yeehom.learn.LoggerTest: debug
+logging:
+    config: classpath:logback-spring.xml
+
+wechat:
+  mpAppId: xxx
+  mpAppSecret: xxx
+  mchId: 1409146202
+  mchKey: c976503d34ca432c601361f969fd8d85
+  keyPath: /var/weixin_cert/h5.p12
+  notifyUrl: http://sell.natapp4.cc/sell/pay/notify
