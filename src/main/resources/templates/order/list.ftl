@@ -1,29 +1,34 @@
 <#--<h1>${orderDTOPage.getTotalPages()}</h1>-->
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>卖家商品列表</title>
-    <link href="https://cdn.bootcss.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
-</head>
+<#include "../common/header.ftl">
 <body>
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>订单Id</th>
-                    <th>姓名</th>
-                    <th>手机号</th>
-                    <th>地址</th>
-                    <th>金额</th>
-                    <th>订单状态</th>
-                    <th>支付状态</th>
-                    <th>创建时间</th>
-                    <th colspan="2">操作</th>
-                </tr>
-                </thead>
-                <tbody>
+
+<div id="wrapper" class="toggled">
+
+    <#--边栏sidebar-->
+    <#include "../common/nav.ftl">
+
+
+    <#--主要内容content-->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-bordered table-condensed">
+                        <thead>
+                        <tr>
+                            <th>订单Id</th>
+                            <th>姓名</th>
+                            <th>手机号</th>
+                            <th>地址</th>
+                            <th>金额</th>
+                            <th>订单状态</th>
+                            <th>支付状态</th>
+                            <th>创建时间</th>
+                            <th colspan="2">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                 <#list orderDTOPage.content as orderDTO>
                 <tr>
                     <td>${orderDTO.orderId} </td>
@@ -43,12 +48,12 @@
                     </td>
                 </tr>
                 </#list>
-                </tbody>
-            </table>
-        </div>
-        <#--分页-->
-        <div class="col-md-12 column">
-            <ul class="pagination pull-right">
+                        </tbody>
+                    </table>
+                </div>
+            <#--分页-->
+                <div class="col-md-12 column">
+                    <ul class="pagination pull-right">
                 <#assign limitPage=10 />
                 <#assign minPage=1 />
                 <#assign maxPage=limitPage />
@@ -76,7 +81,9 @@
                     <#else>
                         <li><a href="/sell/seller/order/list?page=${currentPage + 1}&size=${size}">下一页&gt;</a></li>
                     </#if>
-            </ul>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
