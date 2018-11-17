@@ -70,4 +70,19 @@ public class ProductServiceImplTest {
         return  productInfo;
     }
 
+    @Test
+    public void onSale() {
+        productService.onSale("123457");
+        ProductInfo result = productService.findOne("123457");
+
+        Assert.assertEquals(ProductStatusEnum.UP.getCode(), result.getProductStatus());
+    }
+
+    @Test
+    public void offSale() {
+        productService.offSale("123457");
+        ProductInfo result = productService.findOne("123457");
+
+        Assert.assertEquals(ProductStatusEnum.DOWN.getCode(), result.getProductStatus());
+    }
 }
