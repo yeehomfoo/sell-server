@@ -11,6 +11,8 @@ spring:
   freemarker:
     settings:
       template_update_delay: 0
+  redis:
+    host: 127.0.0.1
 server:
   context-path: /sell
 #logging:
