@@ -16,6 +16,7 @@ import com.yeehom.learn.repository.OrderMasterRepository;
 import com.yeehom.learn.service.OrderService;
 import com.yeehom.learn.service.PayService;
 import com.yeehom.learn.service.ProductService;
+import com.yeehom.learn.websocket.SellerWebSocket;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private PayService payService;
+
+    @Autowired
+    private SellerWebSocket sellerWebSocket;
 
     @Override
     @Transactional
@@ -96,6 +100,9 @@ public class OrderServiceImpl implements OrderService {
                 new CartDTO(e.getProductId(), e.getProductQuantity())
         ).collect(Collectors.toList());
         productService.decreaseStock(cartDTOList);
+
+        // 发送 WebSocket 消息
+        sellerWebSocket.sendMessage(orderDTO.getOrderId());
 
         return orderDTO;
     }
