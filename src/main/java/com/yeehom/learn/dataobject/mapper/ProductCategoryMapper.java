@@ -43,6 +43,6 @@ public interface ProductCategoryMapper {
     @Update("update product_category set category_name = #{categoryName} where category_type = #{categoryType}")
     int updateByObject(ProductCategory productCategory);
 
-    @Delete("delete from product_category where category_name = #{categoryType}")
+    @Delete("delete from product_category where category_Type = #{categoryType}")
     int deleteByCategoryType(Integer categoryType);
 }
