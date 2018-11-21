@@ -24,6 +24,8 @@ server:
 #    com.yeehom.learn.LoggerTest: debug
 logging:
     config: classpath:logback-spring.xml
+    level:
+      com.yeehom.learn.dataobject.mapper: trace
 
 wechat:
   mpAppId: xxx
@@ -32,3 +34,5 @@ wechat:
   mchKey: c976503d34ca432c601361f969fd8d85
   keyPath: /var/weixin_cert/h5.p12
   notifyUrl: http://sell.natapp4.cc/sell/pay/notify
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
