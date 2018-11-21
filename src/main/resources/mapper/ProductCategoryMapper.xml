@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yeehom.learn.dataobject.mapper.ProductCategoryMapper">
+    <resultMap id="baseResultMap" type="com.yeehom.learn.dataobject.ProductCategory">
+        <id column="category_id" property="categoryId" jdbcType="INTEGER"></id>
+        <result column="category_name" property="categoryName" jdbcType="VARCHAR"></result>
+        <result column="category_type" property="categoryType" jdbcType="INTEGER"></result>
+    </resultMap>
+
+    <select id="selectByProductCategoryType" resultMap="baseResultMap" parameterType="java.lang.Integer">
+        select category_id, category_name, category_type
+        from product_category
+        where category_type = #{categoryType, jdbcType=INTEGER}
+    </select>
+</mapper>

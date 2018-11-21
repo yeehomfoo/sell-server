@@ -93,4 +93,11 @@ public class ProductCategoryMapperTest {
 
         Assert.assertEquals(1, count);
     }
+
+    @Test
+    public void selectByProductCategoryType() {
+        ProductCategory result = mapper.selectByProductCategoryType(101);
+
+        Assert.assertNotNull(result);
+    }
 }
