@@ -2,7 +2,9 @@ package com.yeehom.learn.service.impl;
 
 import com.yeehom.learn.Util.KeyUtil;
 import com.yeehom.learn.exception.SellException;
+import com.yeehom.learn.service.RedisLock;
 import com.yeehom.learn.service.SecKillService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -14,6 +16,11 @@ import java.util.Map;
  */
 @Service
 public class SecKillServiceImpl implements SecKillService {
+
+    @Autowired
+    private RedisLock redisLock;
+
+    private Integer TIMEOUT = 10 * 1000; // 过期时间10s
 
     /**
      * 国庆活动，皮蛋粥特价，限量100000份
@@ -46,7 +53,13 @@ public class SecKillServiceImpl implements SecKillService {
      * @param prodcutId
      */
     @Override
-    public synchronized void orderProdcutMockDiffUser(String prodcutId) {
+    public void orderProdcutMockDiffUser(String prodcutId) {
+        String value = System.currentTimeMillis() + String.valueOf(TIMEOUT);
+        // 加锁
+        if (!redisLock.lock(prodcutId, value)) {
+            throw new SellException(101, "哎呦喂，当前活动人数太多，请换个姿势再试");
+        }
+
         // 1. 查询该商品库存，为0则活动结束
         Integer stockNum = stock.get(prodcutId);
         if (0 == stockNum) {
@@ -63,6 +76,9 @@ public class SecKillServiceImpl implements SecKillService {
             e.printStackTrace();
         }
         stock.put(prodcutId, stockNum);
+
+        // 解锁
+        redisLock.unlock(prodcutId, value);
     }
 
     private String queryMap(String productId) {
