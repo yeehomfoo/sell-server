@@ -17,10 +17,11 @@ import java.util.Map;
 @Service
 public class SecKillServiceImpl implements SecKillService {
 
+    // 超时时间 10s
+    private static final int TIMEOUT = 10 * 1000;
+
     @Autowired
     private RedisLock redisLock;
-
-    private Integer TIMEOUT = 10 * 1000; // 过期时间10s
 
     /**
      * 国庆活动，皮蛋粥特价，限量100000份
@@ -49,15 +50,16 @@ public class SecKillServiceImpl implements SecKillService {
     /**
      * 解决多线程并发问题：
      * 1、加synchronize。这是一种解决方案，但是无法做细粒度控制，存在单点问题。
-     * 2、用基于 Redis 的分布式锁。
+     * 2、用基于 Redis 的分布式锁。支持高可用分布式集群，可以更细粒度控制（使用ID），
+     * 性能优秀（单线程执行，高效的key-value数据结构，据说最高可支持10+万/s的并发）
      * @param prodcutId
      */
     @Override
     public void orderProdcutMockDiffUser(String prodcutId) {
-        String value = System.currentTimeMillis() + String.valueOf(TIMEOUT);
+        long time = System.currentTimeMillis() + TIMEOUT;
         // 加锁
-        if (!redisLock.lock(prodcutId, value)) {
-            throw new SellException(101, "哎呦喂，当前活动人数太多，请换个姿势再试");
+        if (!redisLock.lock(prodcutId, String.valueOf(time))) {
+            throw new SellException(101, "哎呦喂，人也太多了，个姿势再试试~~");
         }
 
         // 1. 查询该商品库存，为0则活动结束
@@ -78,7 +80,7 @@ public class SecKillServiceImpl implements SecKillService {
         stock.put(prodcutId, stockNum);
 
         // 解锁
-        redisLock.unlock(prodcutId, value);
+        redisLock.unlock(prodcutId, String.valueOf(time));
     }
 
     private String queryMap(String productId) {

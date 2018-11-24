@@ -50,10 +50,10 @@ public class RedisLock {
      * @param value
      */
     public void unlock(String key, String value) {
-        String currentValue = redisTemplate.opsForValue().get(key);
         try {
-            if (key == currentValue) {
-                redisTemplate.delete(key);
+            String currentValue = redisTemplate.opsForValue().get(key);
+            if (StringUtils.isNotEmpty(currentValue) && currentValue.equals(value)) {
+                redisTemplate.opsForValue().getOperations().delete(key);
             }
         } catch (Exception e) {
             log.error("【Redis 分布式锁】解锁失败，异常：", e);
