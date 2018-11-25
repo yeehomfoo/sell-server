@@ -12,6 +12,7 @@ import com.yeehom.learn.service.CategoryService;
 import com.yeehom.learn.service.ProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,7 +38,11 @@ public class BuyerProductController {
     private CategoryService categoryService;
 
     @GetMapping("/list")
-    public ResultVO list() {
+    @Cacheable(cacheNames = "product",
+            key = "#sellerId",
+            condition = "#sellerId.length() > 3",
+            unless = "#result.getData().size() == 0")
+    public ResultVO<List<ProductVO>> list(String sellerId) {
 
         List<ProductInfo> productInfoList = productService.findUpAll();
 

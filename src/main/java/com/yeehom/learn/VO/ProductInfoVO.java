@@ -3,6 +3,7 @@ package com.yeehom.learn.VO;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -10,7 +11,9 @@ import java.math.BigDecimal;
  * Created by yFoo on 14/01/2018.
  */
 @Data
-public class ProductInfoVO {
+public class ProductInfoVO implements Serializable {
+
+    private static final long serialVersionUID = -8987740623926928652L;
 
     @JsonProperty("id")
     private String productId;

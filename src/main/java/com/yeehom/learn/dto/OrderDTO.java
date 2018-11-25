@@ -10,6 +10,7 @@ import com.yeehom.learn.enums.OrderStatusEnum;
 import com.yeehom.learn.enums.PayStatusEnum;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,7 +22,9 @@ import java.util.List;
 @Data
 //@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 //@JsonInclude(JsonInclude.Include.NON_NULL)
-public class OrderDTO {
+public class OrderDTO implements Serializable {
+
+    private static final long serialVersionUID = -5802013496823186863L;
 
     private String orderId;
 
