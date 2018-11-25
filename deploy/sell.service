@@ -1,0 +1,22 @@
+[Unit]
+Description=sell
+After=syslog.target network.target
+
+[Service]
+Type=simple
+
+ExecStart=/usr/bin/java -jar /opt/java/apps/sell.jar
+ExecStop=/bin/kill -s QUIT $MAINPID
+
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
+
+# centOS 7 比较提倡把应用作为服务（service）使用
+# /etc/systemd/system/
+# systemctl start sell[.service]
+# systemctl stop sell
+# systemctl enable sell // 开机自启动
+# systemctl disable sell // 取消开机自启动
