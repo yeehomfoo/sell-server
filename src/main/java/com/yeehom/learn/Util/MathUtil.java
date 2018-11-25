@@ -1,4 +1,4 @@
-package com.yeehom.learn.Util;
+package com.yeehom.learn.util;
 
 /**
  * Created by yFoo on 01/02/2018.

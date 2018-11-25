@@ -1,6 +1,6 @@
-package com.yeehom.learn.Util;
+package com.yeehom.learn.util;
 
-import com.yeehom.learn.VO.ResultVO;
+import com.yeehom.learn.vo.ResultVO;
 
 /**
  * Created by yFoo on 16/01/2018.

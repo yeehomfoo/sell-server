@@ -1,13 +1,11 @@
 package com.yeehom.learn.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.yeehom.learn.Util.ResultVOUtil;
-import com.yeehom.learn.VO.ProductInfoVO;
-import com.yeehom.learn.VO.ProductVO;
-import com.yeehom.learn.VO.ResultVO;
+import com.yeehom.learn.util.ResultVOUtil;
+import com.yeehom.learn.vo.ProductInfoVO;
+import com.yeehom.learn.vo.ProductVO;
+import com.yeehom.learn.vo.ResultVO;
 import com.yeehom.learn.dataobject.ProductCategory;
 import com.yeehom.learn.dataobject.ProductInfo;
-import com.yeehom.learn.enums.ResultEnum;
 import com.yeehom.learn.service.CategoryService;
 import com.yeehom.learn.service.ProductService;
 import org.springframework.beans.BeanUtils;
@@ -17,10 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**

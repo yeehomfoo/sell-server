@@ -1,4 +1,4 @@
-package com.yeehom.learn.VO;
+package com.yeehom.learn.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

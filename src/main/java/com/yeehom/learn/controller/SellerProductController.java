@@ -1,6 +1,6 @@
 package com.yeehom.learn.controller;
 
-import com.yeehom.learn.Util.KeyUtil;
+import com.yeehom.learn.util.KeyUtil;
 import com.yeehom.learn.dataobject.ProductCategory;
 import com.yeehom.learn.dataobject.ProductInfo;
 import com.yeehom.learn.exception.SellException;
@@ -9,10 +9,7 @@ import com.yeehom.learn.service.CategoryService;
 import com.yeehom.learn.service.ProductService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;

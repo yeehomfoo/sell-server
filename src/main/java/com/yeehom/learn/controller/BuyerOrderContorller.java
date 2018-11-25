@@ -1,7 +1,7 @@
 package com.yeehom.learn.controller;
 
-import com.yeehom.learn.Util.ResultVOUtil;
-import com.yeehom.learn.VO.ResultVO;
+import com.yeehom.learn.util.ResultVOUtil;
+import com.yeehom.learn.vo.ResultVO;
 import com.yeehom.learn.converter.OrderForm2OrderDTOConverter;
 import com.yeehom.learn.dto.OrderDTO;
 import com.yeehom.learn.enums.ResultEnum;

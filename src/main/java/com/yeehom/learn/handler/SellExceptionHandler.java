@@ -1,7 +1,7 @@
 package com.yeehom.learn.handler;
 
-import com.yeehom.learn.Util.ResultVOUtil;
-import com.yeehom.learn.VO.ResultVO;
+import com.yeehom.learn.util.ResultVOUtil;
+import com.yeehom.learn.vo.ResultVO;
 import com.yeehom.learn.exception.BankResponseException;
 import com.yeehom.learn.exception.SellException;
 import com.yeehom.learn.exception.SellerAuthorizeException;
