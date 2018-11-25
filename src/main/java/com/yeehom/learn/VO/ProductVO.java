@@ -3,6 +3,7 @@ package com.yeehom.learn.VO;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,7 +13,9 @@ import java.util.List;
  */
 
 @Data
-public class ProductVO {
+public class ProductVO implements Serializable {
+
+    private static final long serialVersionUID = 2636137028073595041L;
 
     @JsonProperty("name")
     private String categoryName;
