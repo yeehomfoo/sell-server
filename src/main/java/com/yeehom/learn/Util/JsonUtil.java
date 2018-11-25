@@ -1,4 +1,4 @@
-package com.yeehom.learn.Util;
+package com.yeehom.learn.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -1,6 +1,6 @@
 package com.yeehom.learn.service.impl;
 
-import com.yeehom.learn.Util.KeyUtil;
+import com.yeehom.learn.util.KeyUtil;
 import com.yeehom.learn.exception.SellException;
 import com.yeehom.learn.service.RedisLock;
 import com.yeehom.learn.service.SecKillService;

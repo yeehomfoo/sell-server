@@ -1,7 +1,7 @@
 package com.yeehom.learn.dataobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.yeehom.learn.Util.EnumUtil;
+import com.yeehom.learn.util.EnumUtil;
 import com.yeehom.learn.enums.ProductStatusEnum;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;

@@ -1,10 +1,9 @@
 package com.yeehom.learn.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.yeehom.learn.Util.EnumUtil;
-import com.yeehom.learn.Util.serializer.Date2LongSerializer;
+import com.yeehom.learn.util.EnumUtil;
+import com.yeehom.learn.util.serializer.Date2LongSerializer;
 import com.yeehom.learn.dataobject.OrderDetail;
 import com.yeehom.learn.enums.OrderStatusEnum;
 import com.yeehom.learn.enums.PayStatusEnum;

@@ -1,6 +1,4 @@
-package com.yeehom.learn.Util;
-
-import com.yeehom.learn.constant.CookieConstant;
+package com.yeehom.learn.util;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

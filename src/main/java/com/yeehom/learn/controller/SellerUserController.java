@@ -1,6 +1,6 @@
 package com.yeehom.learn.controller;
 
-import com.yeehom.learn.Util.CookieUtil;
+import com.yeehom.learn.util.CookieUtil;
 import com.yeehom.learn.constant.CookieConstant;
 import com.yeehom.learn.constant.RedisConstant;
 import com.yeehom.learn.dataobject.SellerInfo;

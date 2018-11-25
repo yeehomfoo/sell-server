@@ -1,4 +1,4 @@
-package com.yeehom.learn.Util.serializer;
+package com.yeehom.learn.util.serializer;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;

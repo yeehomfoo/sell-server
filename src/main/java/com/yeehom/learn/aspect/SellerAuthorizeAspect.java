@@ -1,6 +1,6 @@
 package com.yeehom.learn.aspect;
 
-import com.yeehom.learn.Util.CookieUtil;
+import com.yeehom.learn.util.CookieUtil;
 import com.yeehom.learn.constant.CookieConstant;
 import com.yeehom.learn.constant.RedisConstant;
 import com.yeehom.learn.exception.SellerAuthorizeException;
@@ -12,7 +12,6 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
